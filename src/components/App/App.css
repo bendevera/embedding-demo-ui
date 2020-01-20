@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+}
+
+.header {
+  margin: 1% 5%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  cursor: pointer;
+  color: inherit;
+}
+
+.info-wrapper {
+  margin: 2.5% 5%;
+}
+
+h3 {
+  text-align: left;
+  padding: 1% 0;
+}
+
+.info-elem {
+  padding: 2% 0;
+}

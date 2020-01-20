@@ -1,0 +1,19 @@
+.textbox-container {
+    width: 100%;
+    margin: 3% 0;
+}
+
+textarea {
+    outline: none;
+    resize: none;
+    width: 90%;
+    height: 250px;
+    border-left: 3px solid black;
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+}
+
+textarea:focus {
+    background-color: #e8effa;
+}
