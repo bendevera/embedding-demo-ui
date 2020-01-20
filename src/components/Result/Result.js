@@ -18,7 +18,7 @@ class Result extends React.Component {
                         <div className="row result-wrapper mx-0">
                             <div className="col left-side">
                                 <div className="row sentiment-section positive">
-                                    {payload.sentiment}
+                                    <strong>{payload.sentiment}</strong>
                                 </div>
                                 <div className="row confidence-section">
                                     {confidence}% confident about prediction.
