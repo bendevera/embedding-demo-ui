@@ -27,5 +27,35 @@
 .review-section {
     background-color: #F8F9FA;
     text-align: left;
-    padding: 5%;
+    padding: 5% 0% 0% 3%;
+}
+
+.confirm-section {
+    font-size: 2em;
+    width: 100%;
+    height: 100%;
+    margin: 0%;
+    padding: 0%;
+    cursor: pointer;
+}
+
+.incorrect-prediction {
+    padding: 10%;
+    height: 100%;
+    width: 100%;
+}
+
+.correct-prediction {
+    border-left: 3px solid black;
+    padding: 10%;
+    height: 100%;
+    width: 100%;
+}
+
+.incorrect-prediction:hover {
+    background-color: #ffd1d1;
+}
+
+.correct-prediction:hover {
+    background-color: #bcebc4;
 }

@@ -11,7 +11,7 @@ function PredictionInfo() {
                         <strong>1.</strong> your review is sent to a REST API that makes a request to <a href="https://www.basilica.ai/">basilica’s</a> product review text embedding service to vectorize your review.
                     </div>
                     <div className="col-md-4 col-xs-12 info-elem">
-                        <strong>2,</strong> that embedding is fed into a trained logistic regression model that predicts whether the review is positive or negative.
+                        <strong>2.</strong> that embedding is fed into a trained logistic regression model that predicts whether the review is positive or negative.
                     </div>
                     <div className="col-md-4 col-xs-12 info-elem">
                         <strong>3.</strong> that prediction is sent in the response to your original request to the API to be displayed on the frontend.

@@ -12,10 +12,12 @@ class App extends React.Component {
     super(props)
     this.state = {
       review: "",
-      result: null
+      result: null,
+      answered: false
     }
     this.setReview = this.setReview.bind(this);
     this.getPrediction = this.getPrediction.bind(this);
+    this.sendAnswer = this.sendAnswer.bind(this);
   }
 
   setReview(newReview) {
@@ -41,11 +43,19 @@ class App extends React.Component {
     .then((responseJson) => {
       console.log(responseJson)
       this.setState({
-        result: responseJson
+        result: responseJson,
+        answered: false
       })
     })
     .catch((error) => {
       console.log(error)
+    })
+  }
+
+  sendAnswer(answer) {
+    console.log(answer)
+    this.setState({
+      answered: true
     })
   }
 
@@ -62,8 +72,8 @@ class App extends React.Component {
             </div>
           </div>
         </nav>
-        <TextBox passReview={this.setReview}/>
-        <Result payload={this.state.result} />
+        <TextBox passReview={this.setReview} />
+        <Result payload={this.state.result} answered={this.state.answered} passAnswer={this.sendAnswer} />
         <button className="btn btn-outline-dark" onClick={this.getPrediction}>predict sentiment</button>
         <PredictionInfo />
         <TrainInfo />
