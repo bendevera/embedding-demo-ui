@@ -26,13 +26,26 @@ class App extends React.Component {
 
   getPrediction() {
     console.log(this.state.review)
-    let defaultResult = {
-      sentiment: "Positive",
-      confidence: "99%",
-      review: this.state.review
+    let data = {
+      "review": this.state.review
     }
-    this.setState({
-      result: defaultResult
+    fetch(config.apiUrl+'/predict', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    })
+    .then((response) => response.json())
+    .then((responseJson) => {
+      console.log(responseJson)
+      this.setState({
+        result: responseJson
+      })
+    })
+    .catch((error) => {
+      console.log(error)
     })
   }
 

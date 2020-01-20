@@ -10,6 +10,14 @@
     padding: 10%;
 }
 
+.positive {
+    background-color: #bcebc4;
+}
+
+.negative {
+    background-color: #ffd1d1;
+}
+
 .confidence-section {
     background-color: #e8effa;
     font-size: 1em;
