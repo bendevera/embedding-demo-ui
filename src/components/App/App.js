@@ -144,12 +144,14 @@ class App extends React.Component {
           <TextBox passReview={this.setReview} />
           <Result payload={this.state.result} answered={this.state.answered} passAnswer={this.sendAnswer} />
           <button className="btn btn-outline-dark" onClick={this.getPrediction}>predict sentiment</button>
-          <PredictionInfo />
-          <TrainInfo />
+          <PredictionInfo curr_app={this.state.curr_app} />
+          <TrainInfo curr_app={this.state.curr_app} />
           <DeployInfo />
         </div>
       )
     }
+    const imageClasses = ["airplane", "car", "cat", "dog", "flower", "fruit", "motorbike", "person"]
+    const imageColors = ["#b8fcca", "#c1f7f4", "#eecdfa", "#ffeecf", "#dcffc2", "#dac0fc", "#fbfcc2", "#c3d8f7"]
     return (
       <div className="App">
         <nav className="navbar navbar-light bg-light">
@@ -174,11 +176,20 @@ class App extends React.Component {
             </div>
           </div>
         </nav>
-        {/* <TextBox passReview={this.setReview} /> */}
+        <div className="image-classes">
+          {imageClasses.map((item, index) => {
+            return (
+              <div className="image-class" key={index}
+              style={{backgroundColor: imageColors[index]}}>
+                {item}
+              </div>
+            )
+          })}
+        </div>
         <ImageUpload onChange={this.sendImage} loading={this.state.uploading} />
         <Result payload={this.state.result} answered={this.state.answered} passAnswer={this.sendAnswer} />
-        <PredictionInfo />
-        <TrainInfo />
+        <PredictionInfo curr_app={this.state.curr_app} />
+        <TrainInfo curr_app={this.state.curr_app} />
         <DeployInfo />
       </div>
     )

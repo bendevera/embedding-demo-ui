@@ -15,62 +15,27 @@ class Result extends React.Component {
 
     render() {
         let payload = this.props.payload;
+        const colorKey = {
+            "positive": "#bcebc4",
+            "negative": "#ffd1d1",
+            "airplane": "#b8fcca",
+            "car": "#c1f7f4",
+            "cat": "#eecdfa",
+            "dog": "#ffeecf",
+            "flower": "#dcffc2",
+            "fruit": "#dac0fc",
+            "motorbike": "#fbfcc2",
+            "person": "#c3d8f7"
+          }
 
         if (payload) {
             let confidence = Math.round(payload.confidence*100);
-            if (payload.class == "Positive") {
-                if (this.props.answered) {
-                    return (
-                        <div className="result-container">
-                            <div className="row result-wrapper mx-0">
-                                <div className="col left-side">
-                                    <div className="row sentiment-section positive">
-                                        <strong>{payload.class}</strong>
-                                    </div>
-                                    <div className="row confidence-section">
-                                        {confidence}% confident
-                                    </div>
-                                </div>
-                                <div className="col review-section">
-                                    {payload.review}
-                                </div>
-                            </div>
-                        </div>
-                    )
-                }
-                return (
-                    <div className="result-container">
-                        <div className="row result-wrapper mx-0">
-                            <div className="col left-side">
-                                <div className="row sentiment-section positive">
-                                    <strong>{payload.class}</strong>
-                                </div>
-                                <div className="row confidence-section">
-                                    {confidence}% confident
-                                </div>
-                            </div>
-                            <div className="col m-0 p-0">
-                                <div className="row confirm-section m-0 p-0">
-                                    <div className="col correct-prediction"
-                                        onClick={this.sendAnswer} value="correct">
-                                        correct
-                                    </div>
-                                    <div className="col incorrect-prediction"
-                                        onClick={this.sendAnswer} value="incorrect">
-                                        incorrect
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )
-            }
             if (this.props.answered) {
                 return (
                     <div className="result-container">
                         <div className="row result-wrapper mx-0">
                             <div className="col left-side">
-                                <div className="row sentiment-section negative">
+                                <div className="row sentiment-section" style={{backgroundColor: colorKey[payload.class]}}>
                                     <strong>{payload.class}</strong>
                                 </div>
                                 <div className="row confidence-section">
@@ -88,7 +53,7 @@ class Result extends React.Component {
                 <div className="result-container">
                     <div className="row result-wrapper mx-0">
                         <div className="col left-side">
-                            <div className="row sentiment-section negative">
+                            <div className="row sentiment-section" style={{backgroundColor: colorKey[payload.class]}}>
                                 <strong>{payload.class}</strong>
                             </div>
                             <div className="row confidence-section">

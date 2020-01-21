@@ -44,3 +44,15 @@ h3 {
     font-size: .5em;
   }
 }
+
+.image-classes {
+  display: flex;
+  justify-content: space-evenly;
+  width: 90%;
+  margin: 2% auto;
+}
+
+.image-class {
+  font-size: 1em;
+  padding: .5% 1% .5% 1%;
+}
