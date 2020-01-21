@@ -6,6 +6,16 @@
   margin: 1% 5%;
 }
 
+.brand-button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.brand-button:focus {
+  outline: none;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -27,4 +37,10 @@ h3 {
 
 .info-elem {
   padding: 2% 0;
+}
+
+@media screen and (max-width: 600px) {
+  .dropdown-menu {
+    font-size: .5em;
+  }
 }

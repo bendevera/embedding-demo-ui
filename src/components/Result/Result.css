@@ -39,17 +39,30 @@
     cursor: pointer;
 }
 
-.incorrect-prediction {
-    padding: 10%;
-    height: 100%;
-    width: 100%;
+
+@media screen and (min-width: 840px) {
+    .correct-prediction {
+        border-left: 3px solid black;
+        padding: 10%;
+        height: 100%;
+        width: 100%;
+    }
+    .incorrect-prediction {
+        padding: 10%;
+        height: 100%;
+        width: 100%;
+    }
 }
 
-.correct-prediction {
-    border-left: 3px solid black;
-    padding: 10%;
-    height: 100%;
-    width: 100%;
+@media screen and (max-width : 840px) {
+    .correct-prediction {
+        border-left: 3px solid black;
+        padding: 5%;
+    }
+    .incorrect-prediction {
+        border-left: 3px solid black;
+        padding: 5%;
+    }
 }
 
 .incorrect-prediction:hover {

@@ -17,18 +17,18 @@ class Result extends React.Component {
         let payload = this.props.payload;
 
         if (payload) {
-            let confidence = Math.round(payload.confidence*100)/100;
-            if (payload.sentiment == "Positive") {
+            let confidence = Math.round(payload.confidence*100);
+            if (payload.class == "Positive") {
                 if (this.props.answered) {
                     return (
                         <div className="result-container">
                             <div className="row result-wrapper mx-0">
                                 <div className="col left-side">
                                     <div className="row sentiment-section positive">
-                                        <strong>{payload.sentiment}</strong>
+                                        <strong>{payload.class}</strong>
                                     </div>
                                     <div className="row confidence-section">
-                                        {confidence}% confident about prediction.
+                                        {confidence}% confident
                                     </div>
                                 </div>
                                 <div className="col review-section">
@@ -43,10 +43,10 @@ class Result extends React.Component {
                         <div className="row result-wrapper mx-0">
                             <div className="col left-side">
                                 <div className="row sentiment-section positive">
-                                    <strong>{payload.sentiment}</strong>
+                                    <strong>{payload.class}</strong>
                                 </div>
                                 <div className="row confidence-section">
-                                    {confidence}% confident about prediction.
+                                    {confidence}% confident
                                 </div>
                             </div>
                             <div className="col m-0 p-0">
@@ -71,10 +71,10 @@ class Result extends React.Component {
                         <div className="row result-wrapper mx-0">
                             <div className="col left-side">
                                 <div className="row sentiment-section negative">
-                                    <strong>{payload.sentiment}</strong>
+                                    <strong>{payload.class}</strong>
                                 </div>
                                 <div className="row confidence-section">
-                                    {confidence}% confident about prediction.
+                                    {confidence}% confident
                                 </div>
                             </div>
                             <div className="col review-section">
@@ -89,10 +89,10 @@ class Result extends React.Component {
                     <div className="row result-wrapper mx-0">
                         <div className="col left-side">
                             <div className="row sentiment-section negative">
-                                <strong>{payload.sentiment}</strong>
+                                <strong>{payload.class}</strong>
                             </div>
                             <div className="row confidence-section">
-                                {confidence}% confident about prediction.
+                                {confidence}% confident
                             </div>
                         </div>
                         <div className="col m-0 p-0">
