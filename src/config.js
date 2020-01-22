@@ -4,7 +4,7 @@
 // }
 // prod
 let config = {
-    apiUrl: "https://review-sentiment-api.herokuapp.com"
+    apiUrl: "https://embedding-demo-api.herokuapp.com"
 }
 
 export default config;
