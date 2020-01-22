@@ -13,6 +13,10 @@ class Result extends React.Component {
         this.props.passAnswer(answer)
     }
 
+    componentWillMount() {
+        this.props.resetResult()
+    }
+
     render() {
         let payload = this.props.payload;
         const colorKey = {

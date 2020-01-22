@@ -28,7 +28,6 @@ class App extends React.Component {
 
   sendImage = e => {
     const file = e.target.files[0]
-    console.log(file)
     this.setState({ uploading: true })
     // #2 Catching wrong file types on the client
     const types = ['image/png', 'image/jpeg']
@@ -76,7 +75,6 @@ class App extends React.Component {
     })
     .then((response) => response.json())
     .then((responseJson) => {
-      console.log(responseJson)
       this.setState({
         result: responseJson,
         answered: false
@@ -88,9 +86,15 @@ class App extends React.Component {
   }
 
   sendAnswer = answer => {
-    console.log(answer)
+    // need to add fetch call to report answer
     this.setState({
       answered: true
+    })
+  }
+
+  resetResult = () => {
+    this.setState({
+      result: null
     })
   }
 
@@ -103,14 +107,16 @@ class App extends React.Component {
                       result={this.state.result} 
                       answered={this.state.answered}
                       sendAnswer={this.sendAnswer}
-                      getPrediction={this.getPrediction} />
+                      getPrediction={this.getPrediction}
+                      resetResult={this.resetResult} />
           </Route>
           <Route path="/image">
             <ImageApp sendImage={this.sendImage}
                       uploading={this.state.uploading}
                       result={this.state.result}
                       answered={this.state.answered}
-                      sendAnswer={this.sendAnswer} />
+                      sendAnswer={this.sendAnswer}
+                      resetResult={this.resetResult} />
           </Route>
         </Switch>
       </Router>

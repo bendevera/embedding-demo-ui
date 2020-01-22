@@ -40,7 +40,7 @@
 }
 
 
-@media screen and (min-width: 840px) {
+@media screen and (min-width: 775px) {
     .correct-prediction {
         border-left: 3px solid black;
         padding: 10%;
@@ -54,14 +54,21 @@
     }
 }
 
-@media screen and (max-width : 840px) {
+@media screen and (max-width : 775px) {
+    .confirm-section {
+        font-size: 1.5em;
+    }
     .correct-prediction {
         border-left: 3px solid black;
-        padding: 5%;
+        /* border-bottom: 3px solid black; */
+        padding: 2.5%;
+        width: 100%;
     }
     .incorrect-prediction {
         border-left: 3px solid black;
-        padding: 5%;
+        /* border-bottom: 3px solid black; */
+        padding: 2.5%;
+        width: 100%;
     }
 }
 

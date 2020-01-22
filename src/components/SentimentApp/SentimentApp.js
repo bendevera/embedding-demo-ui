@@ -7,7 +7,6 @@ import TrainInfo from '../TrainInfo/TrainInfo';
 import DeployInfo from '../DeployInfo/DeployInfo';
 
 const SentimentApp  = (props) =>  {
-    console.log(props)
     return (
         <div className="App">
             <nav className="navbar navbar-light bg-light">
@@ -34,7 +33,7 @@ const SentimentApp  = (props) =>  {
                 </div>
             </nav>
             <TextBox passReview={props.setReview} />
-            <Result payload={props.result} answered={props.answered} passAnswer={props.sendAnswer} />
+            <Result payload={props.result} answered={props.answered} passAnswer={props.sendAnswer} resetResult={props.resetResult} />
             <button className="btn btn-outline-dark" onClick={props.getPrediction}>predict sentiment</button>
             <PredictionInfo curr_app="review sentiment classifier" />
             <TrainInfo curr_app="review sentiment classifier" />
