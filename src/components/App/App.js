@@ -37,7 +37,7 @@ class App extends React.Component {
       return 
     } 
     // #3 Catching files that are too large on the client
-    if (file.size > 150000) {
+    if (file.size > 450000) {
       alert(`'${file.name}' is too large, please pick a smaller file`)
       this.setState({ uploading: false })
       return

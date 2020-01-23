@@ -12,7 +12,7 @@ const TrainInfo = (props) => {
                             <strong>1.</strong> the dataset used to train the logistic regression model was 200k amazon product reviews that can be downloaded <a href="https://drive.google.com/drive/folders/0Bz8a_Dbh9Qhbfll6bVpmNUtUcFdjYmF2SEpmZUZUcVNiMUw1TWN6RDV3a0JHT3kxLVhVR2M">here</a>.
                         </div>
                         <div className="col-md-3 col-xs-12 info-elem">
-                            <strong>2.</strong> each review was converted into a text embedding by the <a href="https://www.basilica.ai/">basilica</a> API.
+                            <strong>2.</strong> each review was vectorized by a <a href="https://www.basilica.ai/">basilica</a> text embedding.
                         </div>
                         <div className="col-md-3 col-xs-12 info-elem">
                             <strong>3.</strong> those embeddings and their targets were fed into the logistic regression model to train it.
