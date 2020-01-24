@@ -16,11 +16,10 @@ class Result extends React.Component {
     }
 
     sendAnswer(e) {
-        let send = false ? this.props.curr_app == "review sentiment classifier" : true;
         let answer = {
             answer: e.target.getAttribute("value"),
             predicted: this.props.payload.class,
-            send: send
+            send: this.props.send
         }
         this.props.passAnswer(answer)
     }

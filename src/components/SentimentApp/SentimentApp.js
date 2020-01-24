@@ -34,7 +34,7 @@ const SentimentApp  = (props) =>  {
                 </div>
             </nav>
             <TextBox passReview={props.setReview} />
-            <Result curr_app="review sentiment classifier" matrixData={props.matrixData} payload={props.result} answered={props.answered} passAnswer={props.sendAnswer} resetResult={props.resetResult} />
+            <Result curr_app="review sentiment classifier" send={true} matrixData={props.matrixData} payload={props.result} answered={props.answered} passAnswer={props.sendAnswer} resetResult={props.resetResult} />
             <PredictButton uploading={props.uploading} getPrediction={props.getPrediction} />
             {/* <button className="btn btn-outline-dark" onClick={props.getPrediction}>predict sentiment</button> */}
             <PredictionInfo curr_app="review sentiment classifier" />

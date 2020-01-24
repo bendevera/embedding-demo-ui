@@ -44,7 +44,7 @@ const ImageApp  = (props) =>  {
           })}
         </div>
         <ImageUpload onChange={props.sendImage} loading={props.uploading} />
-        <Result payload={props.result} answered={props.answered} passAnswer={props.sendAnswer} resetResult={props.resetResult} />
+        <Result send={false} payload={props.result} answered={props.answered} passAnswer={props.sendAnswer} resetResult={props.resetResult} />
         <PredictionInfo curr_app="natural image classifier" />
         <TrainInfo curr_app="natural image classifier" />
         <DeployInfo />
