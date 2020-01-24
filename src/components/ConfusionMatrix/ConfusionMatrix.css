@@ -1,0 +1,21 @@
+.matrix-wrapper {
+    text-align: center;
+}
+
+.matrix-elem {
+    padding: 4.5%;
+    margin: 0%;
+} 
+
+.matrix-row {
+    vertical-align: center;
+    margin: 0;
+}
+
+.review-section {
+    padding: 0;
+}
+
+.matrix-header {
+    padding: 2.5% 0% 2.5% 7%;
+}

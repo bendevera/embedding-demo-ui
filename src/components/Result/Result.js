@@ -1,6 +1,13 @@
 import React from 'react';
 import './Result.css';
+import ConfusionMatrix from '../ConfusionMatrix/ConfusionMatrix';
 
+const confusionMatrixData = {
+    true_positive: 50,
+    true_negative: 100,
+    false_positive: 200,
+    false_negative: 500
+}
 
 class Result extends React.Component {
     constructor(props) {
@@ -35,6 +42,11 @@ class Result extends React.Component {
         if (payload) {
             let confidence = Math.round(payload.confidence*100);
             if (this.props.answered) {
+                let reviewSection = (<div>{payload.review}</div>);
+                reviewSection = (<ConfusionMatrix data={confusionMatrixData}/>);
+                if (this.props.curr_app == "review sentiment classifier") {
+                    reviewSection = (<ConfusionMatrix data={confusionMatrixData}/>);
+                }
                 return (
                     <div className="result-container">
                         <div className="row result-wrapper mx-0">
@@ -47,7 +59,7 @@ class Result extends React.Component {
                                 </div>
                             </div>
                             <div className="col review-section">
-                                {payload.review}
+                                {reviewSection}
                             </div>
                         </div>
                     </div>
@@ -82,7 +94,8 @@ class Result extends React.Component {
         } 
 
         return (
-            <div></div>
+            <div>
+            </div>
         )
     }
 }
