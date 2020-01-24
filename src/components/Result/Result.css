@@ -28,6 +28,7 @@
     background-color: #F8F9FA;
     text-align: left;
     padding: 5% 0% 0% 3%;
+    overflow: scroll;
 }
 
 .confirm-section {

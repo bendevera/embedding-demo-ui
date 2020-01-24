@@ -3,10 +3,10 @@ import './Result.css';
 import ConfusionMatrix from '../ConfusionMatrix/ConfusionMatrix';
 
 const confusionMatrixData = {
-    true_positive: 50,
-    true_negative: 100,
-    false_positive: 200,
-    false_negative: 500
+    true_positive: .3,
+    true_negative: .12,
+    false_positive: .08,
+    false_negative: .5
 }
 
 class Result extends React.Component {
@@ -16,7 +16,12 @@ class Result extends React.Component {
     }
 
     sendAnswer(e) {
-        let answer = e.target.value;
+        let send = false ? this.props.curr_app == "review sentiment classifier" : true;
+        let answer = {
+            answer: e.target.getAttribute("value"),
+            predicted: this.props.payload.class,
+            send: send
+        }
         this.props.passAnswer(answer)
     }
 
@@ -42,10 +47,9 @@ class Result extends React.Component {
         if (payload) {
             let confidence = Math.round(payload.confidence*100);
             if (this.props.answered) {
-                let reviewSection = (<div>{payload.review}</div>);
-                reviewSection = (<ConfusionMatrix data={confusionMatrixData}/>);
-                if (this.props.curr_app == "review sentiment classifier") {
-                    reviewSection = (<ConfusionMatrix data={confusionMatrixData}/>);
+                let reviewSection = (<div></div>);
+                if (this.props.matrixData) {
+                    reviewSection = (<ConfusionMatrix data={this.props.matrixData}/>);
                 }
                 return (
                     <div className="result-container">
@@ -59,9 +63,10 @@ class Result extends React.Component {
                                 </div>
                             </div>
                             <div className="col review-section">
-                                {reviewSection}
+                                {payload.review}
                             </div>
                         </div>
+                        {reviewSection}
                     </div>
                 )
             }

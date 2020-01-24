@@ -16,7 +16,8 @@ class App extends React.Component {
       review: "",
       uploading: false,
       result: null,
-      answered: false
+      answered: false,
+      matrixData:null
     }
   }
 
@@ -37,11 +38,11 @@ class App extends React.Component {
       return 
     } 
     // #3 Catching files that are too large on the client
-    if (file.size > 450000) {
-      alert(`'${file.name}' is too large, please pick a smaller file`)
-      this.setState({ uploading: false })
-      return
-    }
+    // if (file.size > 450000) {
+    //   alert(`'${file.name}' is too large, please pick a smaller file`)
+    //   this.setState({ uploading: false })
+    //   return
+    // }
 
     const formData = new FormData()
     formData.append('file', file)
@@ -61,7 +62,7 @@ class App extends React.Component {
   }
 
   getPrediction = () => {
-    console.log(this.state.review)
+    this.setState({ uploading: true })
     let data = {
       "review": this.state.review
     }
@@ -77,7 +78,8 @@ class App extends React.Component {
     .then((responseJson) => {
       this.setState({
         result: responseJson,
-        answered: false
+        answered: false,
+        uploading: false
       })
     })
     .catch((error) => {
@@ -87,9 +89,29 @@ class App extends React.Component {
 
   sendAnswer = answer => {
     // need to add fetch call to report answer
+    console.log(answer)
     this.setState({
       answered: true
     })
+    if (answer.send) {
+      fetch(config.apiUrl+'/accuracy/sentiment', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(answer)
+      })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({
+          matrixData: responseJson
+        })
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    }
   }
 
   resetResult = () => {
@@ -104,11 +126,13 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/">
             <SentimentApp setReview={this.setReview} 
+                      uploading={this.state.uploading}
                       result={this.state.result} 
                       answered={this.state.answered}
                       sendAnswer={this.sendAnswer}
                       getPrediction={this.getPrediction}
-                      resetResult={this.resetResult} />
+                      resetResult={this.resetResult}
+                      matrixData={this.state.matrixData} />
           </Route>
           <Route path="/image">
             <ImageApp sendImage={this.sendImage}

@@ -5,6 +5,7 @@ import Result from '../Result/Result';
 import PredictionInfo from '../PredictionInfo/PredictionInfo';
 import TrainInfo from '../TrainInfo/TrainInfo';
 import DeployInfo from '../DeployInfo/DeployInfo';
+import PredictButton from '../PredictButton/PredictButton'
 
 const SentimentApp  = (props) =>  {
     return (
@@ -33,8 +34,9 @@ const SentimentApp  = (props) =>  {
                 </div>
             </nav>
             <TextBox passReview={props.setReview} />
-            <Result payload={props.result} answered={props.answered} passAnswer={props.sendAnswer} resetResult={props.resetResult} />
-            <button className="btn btn-outline-dark" onClick={props.getPrediction}>predict sentiment</button>
+            <Result curr_app="review sentiment classifier" matrixData={props.matrixData} payload={props.result} answered={props.answered} passAnswer={props.sendAnswer} resetResult={props.resetResult} />
+            <PredictButton uploading={props.uploading} getPrediction={props.getPrediction} />
+            {/* <button className="btn btn-outline-dark" onClick={props.getPrediction}>predict sentiment</button> */}
             <PredictionInfo curr_app="review sentiment classifier" />
             <TrainInfo curr_app="review sentiment classifier" />
             <DeployInfo />
