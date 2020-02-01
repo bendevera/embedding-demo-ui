@@ -59,6 +59,12 @@ class App extends React.Component {
         result: resJson
       })
     })
+    .catch((error) => {
+      this.setState({
+        uploading: false
+      })
+      console.log(error)
+    })
   }
 
   getPrediction = () => {
@@ -83,6 +89,9 @@ class App extends React.Component {
       })
     })
     .catch((error) => {
+      this.setState({
+        uploading: false
+      })
       console.log(error)
     })
   }
