@@ -17,13 +17,13 @@ const ConfusionMatrix = (props) => {
                 <strong>confusion matrix</strong>
             </div>  
             <div className="row matrix-row m-0 p-0">
-                <div className="col matrix-elem text-success"
+                <div className="col matrix-elem"
                     style={{
                         backgroundColor: colors.true_positive
                     }}>
                 True Positive<br/>{props.data.true_positives}
                 </div>
-                <div className="col matrix-elem text-danger"
+                <div className="col matrix-elem"
                     style={{
                         backgroundColor: colors.false_negative
                     }}>
@@ -31,13 +31,13 @@ const ConfusionMatrix = (props) => {
                 </div>
             </div>
             <div className="row matrix-row m-0 p-0">
-                <div className="col matrix-elem text-danger"
+                <div className="col matrix-elem"
                     style={{
                         backgroundColor: colors.false_positive
                     }}>
                 False Positive<br/>{props.data.false_positives}
                 </div>
-                <div className="col matrix-elem text-success"
+                <div className="col matrix-elem"
                     style={{
                         backgroundColor: colors.true_negative
                     }}>

@@ -5,6 +5,8 @@
 .matrix-elem {
     padding: 4.5%;
     margin: 0%;
+    font-weight: 500;
+    color: black;
 } 
 
 .matrix-row {
